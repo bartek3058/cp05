@@ -15,11 +15,10 @@ int main() {
         std::cout << "Success: " << bob << std::endl;
 
         std::cout << "-> Upgrading Bob (Decrementing grade)..." << std::endl;
-        bob.decrementGrade(); // 50 -> 49 (Higher rank)
+        bob.decrementGrade();
         std::cout << "Success: " << bob << std::endl;
     }
     catch (std::exception &e) {
-        // This block should NOT execute in this test
         std::cout << "Exception caught: " << e.what() << std::endl;
     }
 
@@ -28,11 +27,10 @@ int main() {
     // ------------------------------------------------------------------
     std::cout << "\n[TEST 2] Creating Bureaucrat with Grade 0 (Too High)" << std::endl;
     try {
-        Bureaucrat god("God", 0); // Should throw GradeTooHighException
+        Bureaucrat god("God", 0);
         std::cout << "Error: This line should not be visible!" << std::endl;
     }
     catch (std::exception &e) {
-        // We expect to land here
         std::cout << "Exception caught: " << e.what() << std::endl;
     }
 
@@ -41,7 +39,7 @@ int main() {
     // ------------------------------------------------------------------
     std::cout << "\n[TEST 3] Creating Bureaucrat with Grade 151 (Too Low)" << std::endl;
     try {
-        Bureaucrat intern("Intern", 151); // Should throw GradeTooLowException
+        Bureaucrat intern("Intern", 151);
         std::cout << "Error: This line should not be visible!" << std::endl;
     }
     catch (std::exception &e) {
@@ -57,7 +55,7 @@ int main() {
         std::cout << "Created: " << boss << std::endl;
         
         std::cout << "-> Trying to increment Grade 1 (should fail)..." << std::endl;
-        boss.incrementGrade(); // 1 -> 0 (Error!)
+        boss.incrementGrade();
         std::cout << "Error: This line should not be visible!" << std::endl;
     }
     catch (std::exception &e) {
@@ -73,7 +71,7 @@ int main() {
         std::cout << "Created: " << lazy << std::endl;
 
         std::cout << "-> Trying to decrement Grade 150 (should fail)..." << std::endl;
-        lazy.decrementGrade(); // 150 -> 151 (Error!)
+        lazy.decrementGrade();
         std::cout << "Error: This line should not be visible!" << std::endl;
     }
     catch (std::exception &e) {
